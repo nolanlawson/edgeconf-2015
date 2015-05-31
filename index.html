@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Mobile HTM5 apps that can compete with native</title>
+		<title>Frontend data</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="Frontend data, Edge conf 2015">
+		<meta name="author" content="Nolan Lawson">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -807,76 +807,6 @@ function getImageSrc(src) {
       } );
 
     </script>
-    <script>
-    (function() {
-      
-      function showChart($chart) {
-        $chart.empty().highcharts({
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: 1,//null,
-                plotShadow: false
-            },
-            title: {
-                text: '% users and HTML5 Test score by version'
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-                        format: '{point.name}: <b>{point.html5Score}</b>',
-                        style: {
-                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                        }
-                    }
-                }
-            },
-            series: [{
-                type: 'pie',
-                name: 'Android versions',
-                data: [
-                    {name: '2.2', html5Score: 187, y: 0.35},
-                    {name: '2.3', html5Score: 187, y: 7.8},
-                    {name: '4.0', html5Score: 272, y: 6.7},
-                    {name: '4.2', html5Score: 278, y: 39.5},
-                    {name: '4.3', html5Score: 384, y: 6.5},
-                    {name: '4.4', html5Score: 428, y: 39.1},
-                    {
-                        name: '5.0 (estimated)',
-                        html5Score: 497,
-                        y: 0.05,
-                        sliced: true,
-                        selected: true
-                    },
-                ],
-                dataLabels: {
-                  style: {
-                    fontSize: 20
-                  }
-                }
-            }]
-        });
-      }
-    
-      Reveal.addEventListener('slidechanged', function (e) {
-      
-        var chart = $(e.target).find('#android-chart')[0];
-        if (!chart) { // wrong slide
-          return;
-        }
-      
-        showChart($(chart));
-      });
-      
-      showChart($('#android-chart')); // on startup
-    
-    })();
-    </script>
 
     <script>
     if (!UA.isChrome() && !UA.isFirefox() && !UA.isAndroid() && !UA.isOpera()) {
@@ -884,20 +814,6 @@ function getImageSrc(src) {
         'Heads up! This presentation looks best in ' +
         'Firefox/Chrome due to WEBM video and flexbox. Sorry!');
     }
-    </script>
-    
-    <script>
-    function runJsForOneSecond() {
-      var start = Date.now();
-      var sum = 0;
-      while (true) {
-        sum += Date.now();
-        if (Date.now() > start + 1000) {
-          break;
-        }
-      }
-    }
-    
     </script>
 
 	</body>

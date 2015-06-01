@@ -41,730 +41,302 @@
 	<body>
 
 		<div class="reveal">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h2>Mobile HTM5 apps that can compete with native</h2>
-					<h4>Nolan Lawson</h4>
-                                        <div class="footer">
-                                          <span class="text-muted">(Speaker notes are in the console.log)</span>
-                                        </div>
-          <aside class="notes">
-            Hi, I'm Nolan Lawson. I work for Squarespace doing
-            Android and mobile web, and in my spare time I
-            help maintain PouchDB, a JavaScript database.
-          </aside>
-				</section>
-
-        <section>
-          <h4>HTC Magic, 2009</h4>
-          <img src="img/htc_magic.jpg" height=600 alt="htc magic"/>
-          <aside class="notes">
-            I've been doing Android development for awhile.
-            This was my first smartphone, and also the second-ever Android
-            phone. I thought it was pretty awesome back then.
-          </aside>
-        </section>
-        
-        <section>
-          <img src="img/android_apps.png" alt="my android apps"/>
-          <aside class="notes">
-            I've written a lot of Android apps. But the problem with
-            all these apps is that they're written in Java, so they only
-            run on Android. Java used to hold the promise of being the
-            "write once, run everywhere" platform, but nowadays that
-            mantle has mostly passed to JavaScript.
-          </aside>
-        </section>
-
-        <section>
-          <div class="center-flex fancy-fragments">
-            <div  class="emphasis">
-              <img src="img/web_tech.svg" width=100 alt="html, css, and js"/>
-            </div>
-            <div class="no-emphasis">
-              <span style="white-space: pre;"> &#8594; </span>
-            </div>
-            <div class="emphasis">
-              <div class="horizontal-flex">
-                <div class="fragment fancy-first" data-fragment-index="1">
-                  <img src="img/cordova.png" height=50 alt="cordova">
-                </div>
-                <div class="fragment fancy-first" data-fragment-index="1">
-                  <img src="img/phonegap.png" height=50 alt="phonegap">
-                </div>
-                <div class="fragment fancy-second" data-fragment-index="2">
-                  <img src="img/node-webkit.png" height=50 alt="node-webkit">
-                </div>
-                <div class="fragment fancy-second" data-fragment-index="2">
-                  <img src="img/atomshell.png" height=50 alt="atom shell">
-                </div>
-              </div>
-            </div>
-            <div class="no-emphasis">
-              <span style="white-space: pre;"> &#8594; </span>
-            </div>
-            <div class="emphasis horizontal-flex" style="margin-left: 30px">
-              <ul class="fragment  fancy-first" data-fragment-index="1">
-                <li>Android</li>
-                <li>iOS</li>
-                <li>Windows Phone</li>
-                <li>Blackberry</li>
-                <li>Firefox OS</li>
-              </ul>
-              <ul>
-                <li>Web</li>
-              </ul>
-              <ul class="fragment fancy-second" data-fragment-index="2">
-                <li>Windows</li>
-                <li>OS X</li>
-                <li>Linux</li>
-                <li>Chrome OS</li>
-                <li>etc.</li>
-              </ul>
-            </div>
-          </div>
-          <aside class="notes">
-            So nowadays, this dream I've been tinkering with for awhile
-            is that I could write an app once, using HTML, CSS, and JavaScript,
-            and then deploy it to a variety of mobile and even desktop platforms.
-            Today this is 100% possible with tools like Cordova née PhoneGap,
-            Node-Webkit, and Atom Shell.
-          </aside>
-        </section>
-
-        <section>
-          <img src="img/zuck.png" alt="mark zuckerburg says the mobile web ain't ready"/>
-          <aside class="notes">
-            But the problem has always been performance. The conventional wisdom
-            nowadays is that you just can't get native-level performance from
-            web technologies. Facebook famously migrated their apps from HTML5
-            to native, Twitter followed suit, and many other apps became thick clients
-            or dropped the web altogether.
-          </aside>
-        </section>
-
-        <section>
-          <h4>Nexus 6, 2014</h4>
-          <img src="img/nexus6.jpg" height=600 alt="nexus 6"/>
-          <aside class="notes">
-            But you know, it's 2015, and phones have gotten a lot more
-            powerful since my HTC Magic's heydey. So I think we can revise
-            these assumptions, and give HTML5 a second chance. I think that in 2015
-            you can achieve native-level performance for most apps you want to write,
-            but you have to know the tricks in order to do it.
-          </aside>
-        </section>
-
-        <section>
-          <ul>
-            <li>Animations</li>
-            <li>Android</li>
-            <li>Frameworks</li>
-            <li>Offline-first</li>
-          </ul>
-          <aside class="notes">
-            I'm going to talk about 4 main tricks.
-          </aside>
-        </section>
-
-        <section>
-          <h2>Animations smooth as <img class="inline-img" src="img/butter.png" alt="butter"/></h2>
-          <aside class="notes">
-            So what do we want? Buttery-smooth animations.
-            We want animations like we're used to seeing on our mobile devices,
-            as we swipe left and right on our home screens.
-          </aside>
-        </section>
-        
-        <section>
-          <div class="center-flex">
-            <div class="emphasis horizontal-flex">
-              <div>
-                JavaScript animations
-              </div>
-              <div>
-                <img src="img/tortoise.jpg" height=200 alt="tortoise">
-              </div>
-            </div>
-            <div class="emphasis horizontal-flex">
-              <div>
-                Normal CSS animations
-              </div>
-              <div>
-                <img src="img/hare.jpg" height=200 alt="hare">
-              </div>
-            </div>
-            <div class="emphasis horizontal-flex">
-              <div>
-                Hardware-accelerated CSS animations
-              </div>
-              <div>
-                <img src="img/cheetah.png" height=200 alt="cheetah">
-              </div>
-            </div>
-          </div>
-          <aside class="notes">
-            On the web, there are actually lots of ways to do animations.
-            But in this handy diagram, I demonstrate which ones I think you
-            should be using.
-            I know this is Brooklyn JS, but I'm here to tell you: please stop
-            using JavaScript animations. No more jQuery animations, no more
-            Y.anim; it's got to stop.
-          </aside>
-        </section>
-
-        <section>
-          <div class="video-compare">
-            <div>
-              <video height=680 src="vid/slow-javascript.webm" loop data-autoplay></video>
-            </div>
-            <div>
-              <video height=680 src="vid/fast-non-javascript.webm" loop data-autoplay></video>
-            </div>
-          </div>
-          <div class="header">
-            JavaScript animation (left) vs. hardware-accelerated CSS animation (right)
-          </div>
-          <aside class="notes">
-            Look at this comparison of JavaScript animations (using Y.Anim) and
-            hardware-accelerated CSS animations, using the same hardware. They're
-            just not in the same league.
-
-            That's because JavaScript is bound to the event loop - the same
-            event loop that can't guarantee that setTimeout() will actually execute
-            that many milliseconds later. This is not what you want for your complex
-            bezier curves and easing functions.
-
-            By comparison, hardware-accelerated CSS animations convert the
-            DOM node into an image, then animate it on a separate layer using the
-            GPU. It's doing what GPUs were built to do, which is push pixels around.
-            It's off the CPU, it doesn't require a re-paint, and it's very fast.
-          </aside>
-        </section>
-
-				<section>
-					<table style="margin: 0 auto;">
-						<tr>
-							<td>
-								<div class="demo-label">
-									<code>translate3d</code>
-								</div>
-
-							</td>
-							<td>
-								<div class="demo translate3d-demo">
-									<div class="ball"></div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="demo-label">
-									<code>scale3d</code>
-								</div>
-
-							</td>
-							<td>
-								<div class="demo scale3d-demo">
-									<div class="ball"></div>
-								</div>
-							</td>
-						</tr>
-						</tr>
-            <tr>
-              <td>
-                <div class="demo-label">
-                  <code>rotate3d</code>
-                </div>
-              </td>
-              <td>
-                <div class="demo rotate3d-demo">
-                  <div class="square"></div>
-                </div>
-              </td>
-            </tr>
-						<tr>
-							<td>
-								<div class="demo-label">
-									<code>opacity</code>
-								</div>
-							</td>
-							<td>
-								<div class="demo opacity-demo">
-									<div class="ball"></div>
-								</div>
-							</td>
-						</tr>
-					</table>
-          <aside class="notes">
-            OK, so how do we get these cool animations? First, you use CSS
-            animations - either keyframes or transitions are fine. But you have
-            to be careful to only manipulate one of these 4 properties. If you
-            try to manipulate anything else, then you won't get hardware acceleration.
-
-            There are some exceptions - e.g. the regular translate will also give
-            hardware acceleration in some browsers, so you don't necessarily need
-            translate3d. But these are the four to stick with if you want to play it safe.
-          </aside>
-				</section>
-				<section>
-					<table style="margin: 0 auto;">
-						<tr>
-							<td>
-								<div class="demo-label smaller">
-									<code>top / left</code>
-								</div>
-
-							</td>
-							<td>
-								<div class="demo top-left-demo">
-									<div class="ball"></div>
-								</div>
-							</td>
-						</tr>
-						</tr>
-            <tr>
-              <td>
-                <div class="demo-label smaller">
-                  <code>top / left /  translateZ(0)</code>
-                </div>
-              </td>
-              <td>
-                <div class="demo top-left-with-z-demo">
-                  <div class="ball"></div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-							<td>
-								<div class="demo-label smaller">
-									<code>translate3d</code>
-								</div>
-
-							</td>
-							<td>
-								<div class="demo translate3d-demo">
-									<div class="ball"></div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-						  <td colspan=2>
-						    <button class="btn" type=button onclick=runJsForOneSecond()>Run JS for 1 second</button>
-						  </td>
-						</tr>
-					</table>
-          <aside class="notes">
-            Now if you don't believe me, and you go running off
-            using CSS animations without using transforms/opacity,
-            you'll get something faster than JavaScript animations,
-            but still not as fast as hardware-accelerated animations.
-            (And thus not as fast as native.) Also, the non-GPU animations
-            are blocked by JavaScript and the DOM!
-          </aside>
-				</section>
-				
-        <section>
-          <div>
-            <video data-autoplay src="vid/snakes.webm" loop></video>
-          </div>
-          <div class="header">
-            <a href="fps_demo.html" target="_blank">Full FPS demo</a> (see also Jake Archibald vid in sources)
-          </div>
-          <aside class="notes">
-            In the links at the end of these slides,
-            I have a Jake Archibald video where he goes over all these different
-            techniques and shows exactly what the performance looks like on a Nexus 7.
-            It's a great example of how you can fool yourself by only testing on
-            your desktop machine, because notice how those snakes look fine on
-            desktop but horrible on the tablet.
-
-            I also tinkered with his demo and attached it to these slides.
-          </aside>
-        </section>
-
-        <section>
-            <h2>The Android problem</h2>
-          <aside class="notes">
-            Now, I'm going to move on to some Android-specific advice.
-          </aside>
-        </section>
-
-        <section>
-          <h4>Android is the new IE</h4>
-          
-          <div id="android-chart"></div>
+          <h2>Frontend data</h2>
+          <h4>Nolan Lawson</h4>
           <div class="footer">
-            <small class="text-muted">
-              Source: <a href="https://developer.android.com/about/dashboards/index.html">Android dashboards</a>,
-              fetched on 9 January 2015, and <a href="http://html5test.com">HTML5Test.com</a>.
-            </small>
+            <span class="text-muted">
+              Speaker notes are in the console
+            </span>
           </div>
           <aside class="notes">
-            If you want to know what Android web development is like, imagine a parallel
-            universe where instead of IE being the non-evergreen browser everyone hated,
-            it was Chrome. And every user had a different version of Chrome, so you had
-            to worry about bugs in Chrome 37 that didn't appear in Chrome 36, or you had to
-            worry about bugs introduced by Samsung and HTC that only appeared on their phones.
-            That's Android.
-
-            These are the HTML5 test scores for the WebView in each of the recent
-            major Android version. If you test your desktop browser (Firefox or Chrome), it'll
-            score around 500. Only Android 5.0 Lollipop actually scores that well, because
-            it's actually, finally, an evergreen WebView. That's the one you want, and it's less
-            than 0.1% of all users.
-          </aside>
-          <aside style="display:none;">
-            <p>The table is included here for accessibility.</p>
-            <table>
-              <tr>
-                <th>Android</th>
-                <td>2.2</td>
-                <td>2.3</td>
-                <td>4.0</td>
-                <td>4.2</td>
-                <td>4.3</td>
-                <td>4.4</td>
-                <td>5.0 (estimated)</td>
-              </tr>
-
-              <tr>
-                <th>Score</th>
-                <td><strong>187</strong></td>
-                <td><strong>187</strong></td>
-                <td><strong>272</strong></td>
-                <td><strong>278</strong></td>
-                <td><strong>384</strong></td>
-                <td><strong>428</strong></td>
-                <td><strong>497</strong></td>
-              </tr>
-
-              <tr>
-                <th>Coverage</th>
-                <td>0.035%</td>
-                <td>7.8%</td>
-                <td>6.7%</td>
-                <td>39.5%</td>
-                <td>6.5%</td>
-                <td>39.1%</td>
-                <td>0.05%</td>
-              </tr>
-
-            </table>
+            Thanks for the introduction, Jake.
+            Hi everyone, I'm Nolan Lawson, and I'd like to set the stage
+            for a thrilling, fascinating, and often beguiling subject: offline data!
+            And yes, they have that in browsers now!
           </aside>
         </section>
+
 
         <section>
-          <img src="img/crosswalk.png" alt="crosswalk home page"/>
+          <ul>
+            <li>Service workers</li>
+            <li>ApplicationCache</li>
+            <li>IndexedDB</li>
+            <li>WebSQL</li>
+            <li>LocalStorage</li>
+            <li>SessionStorage</li>
+            <li>Cookies</li>
+          </ul>
           <aside class="notes">
-            Luckily, we finally have a solution to this problem. Intel has put out
-            a free, open-source library called Crosswalk that allows you to basically
-            bundle the latest version of Chromium with your app. Then you can use
-            that instead of the WebView. It gives you a consistent target to code to,
-            and it works back to Android 4.0.
+            First off, I'd like to say that I think it's an exciting time to
+            be a web developer. Storage and caching APIs that we couldn't have
+            dreamed of 5 years ago are now landing in major browsers.
+            Nowadays, if anything, it's easy to get overwhelmed by the
+            smorgasbord of options.
 
-            Oh, and did I mention performance?
+            But to keep a lavel head, I like to focus on the kinds of cool apps
+            that people are building with this technology. So let's look at a few.
           </aside>
         </section>
 
-        <section>
-          <div class="video-compare">
-            <div>
-              <video data-autoplay height=680 src="vid/slow-without-crosswalk.webm" loop></video>
-            </div>
-            <div>
-              <video data-autoplay height=680 src="vid/fast-with-crosswalk.webm" loop></video>
-            </div>
-          </div>
-          <div class="header">Android 4.4.4 WebView (left, Chromium v33) vs. Chrosswalk (right, Chromium v38)</div>
-          <aside class="notes">
-            This is the same app running on Android 4.4.4 WebView vs the Crosswalk XWalkView.
-            It's not an old version of Android at all - it's the one right
-            before Lollipop - and yet the difference in performance is huge. I've seen old
-            4.0 phones that outperform 4.4 just because they're running Crosswalk.
-
-            Crosswalk adds about 20MB to the download size of your APK, because you're
-            basically giving your users Chrome, but for what you get,
-            it's definitely worth it. You get the Lollipop experience all the way
-            back to Android 4.0, which covers nearly all Android users.
-
-            This is probably the single best thing you can do to improve the performance of
-            your hybrid app. I can't recommend it enough.
-          </aside>
-        </section>
-
-        <section>
-          <h2>Pick your frameworks carefully</h2>
-          <aside class="notes">
-            This final point is about frameworks. Now I know we all love our MVC and
-            CSS frameworks...
-          </aside>
-        </section>
-        
         <section>
           <div>
-            <img src="img/framework_authors.png" alt="tweet, Looking fwd to js framework authors getting smartphones and trying their stuff out on em someday."/>
+            <video height=680 src="vid/devsummit1.webm" loop data-autoplay></video>
           </div>
           <aside class="notes">
-            But if you're doing mobile development, you can find the performance a little
-            underwhelming. This is not a jab at any framework in particular - we all care
-            about performance, but I'm just saying that mobile isn't necessarily their
-            number-1 concern, so we have to be cautious and try stuff out in advance.
+            Here's a neat app that Paul Lewis of the Google Chrome team made
+            for the Chrome dev summit.
+            Of course it looks great, with spiffy animations, and it shows
+            the whole conference schedule.
           </aside>
         </section>
 
         <section>
-          <h3>Mobile-optimized frameworks</h3>
-          <div class="flex">
-            <div><img src="img/framework_ionic.jpg" height=300 alt="ionic framework"/></div>
-            <div><img src="img/framework_famous.jpg" height=300 alt="famous framework"/></div>
-            <div><img src="img/framework_appgyver.jpg" height=300 alt="appgyver framework"/></div>
+          <div>
+            <video height=680 src="vid/devsummit2.webm" loop data-autoplay></video>
           </div>
           <aside class="notes">
-            And if you're really worried about performance, you can try one of the many
-            mobile-optimized frameworks. There are a bunch of these out there, and they all
-            have different tricks to get better performance on mobile.
+            This app is not only responsive; it also works offline! So it
+            fulfills a huge requirement of any decent conference app, which is
+            that it should work for conference-goers who might have a
+            spotty hotel wifi connection, are on roaming, or might have
+            no connection at all. You want to at least
+            be able to see the schedule while you're offline.
           </aside>
         </section>
 
+        <section>
+          <div>
+            <video height=680 src="vid/devsummit_android.webm" loop data-autoplay></video>
+          </div>
+          <aside class="notes">
+            All of this is possible with just a simple website - no native
+            app required. You can even save an icon to your homescreen, with
+            a custom high-quality icon.
+          </aside>
+        </section>
+
+        <section>
+          <div>
+            <video height=680 src="vid/devsummit_android2.webm" loop data-autoplay></video>
+          </div>
+          <aside class="notes">
+            Then you can launch the app while it's offline, and notice that it
+            has a custom, purple-tinted toolbar color, as well as a lack of
+            browser chrome. So it feels extra "appy."
+            This app is using Service Worker to achieve the offline capabilities,
+            and the rest is just meta tags on the HTML.
+          </aside>
+        </section>
+
+      <section>
+        <div>
+          <video height=680 src="vid/done.webm" loop data-autoplay></video>
+        </div>
+        <aside class="notes">
+          Can we go further with data storage? You bet! This is an app
+          built by PouchDB creator and Mozillian Dale Harvey, demonstrating
+          PouchDB's sync mechanism. Here I have three browsers open -
+          Chrome, Safari, and Firefox - and I'm showing off a simple
+          TodoMVC-like app, but with a twist: the data is being saved
+          and synced across all three browsers.
+        </aside>
+      </section>
+
+        <section>
+          <div>
+            <video height=680 src="vid/done2.webm" loop data-autoplay></video>
+          </div>
+          <aside class="notes">
+            If you go offline, the app not only continues working,
+            but it can also save data while offline. Then when
+            we come back online, the data gets synced back to all three browsers.
+            This is great for apps that want to allow you to log in from
+            any device, and still be able to have your data and sync it on the go.
+            This app uses ApplicationCache and PouchDB.
+          </aside>
+        </section>
+
+        <section>
+          <div>
+            <video height=680 src="vid/devdocs.webm" loop data-autoplay></video>
+          </div>
+          <aside class="notes">
+            Here's a really useful one - devdocs.io. You can save the
+            documentation for various frameworks and APIs locally, then search
+            instantly and read the docs, all while offline. Notice how slick
+            the UI feels - that's the power of offline! You'd never get that
+            speed with a network request, even if you were on a fast desktop
+            connection.
+
+            This one uses raw IndexedDB and Application Cache.
+          </aside>
+        </section>
+
+        <section>
+          <div>
+            <video height=680 src="vid/npmbrowser1.webm" loop data-autoplay></video>
+          </div>
+          <aside class="notes">
+            I was interested to see how far I could push offline
+            storage, so I also made this ridiculous showcase app called NPM Browser.
+            What it does is sync the entire NPM registry - the metadata
+            anyway - to your browser, which comes to a grand total of
+            something like 2-2.5 gigabytes. Believe it or not, this works
+            in Chrome, Firefox, Safari, and even IE.
+          </aside>
+        </section>
+
+        <section>
+          <div>
+            <video height=680 src="vid/npmbrowser2.webm" loop data-autoplay></video>
+          </div>
+          <aside class="notes">
+            You can search for NPM modules and see who maintains them,
+            what the current version is, or browse the readme.
+          </aside>
+        </section>
+
+        <section>
+          <div>
+            <video height=680 src="vid/npmbrowser3.webm" loop data-autoplay></video>
+          </div>
+          <aside class="notes">
+            If you go offline, you get a nice little notification
+            telling you that you're offline.
+            And when you come back online, it just starts syncing
+            again where it left off.
+          </aside>
+        </section>
+
+        <section>
+          <div>
+            <video height=680 src="vid/npmbrowser4.webm" loop data-autoplay></video>
+          </div>
+          <aside class="notes">
+            And if you actually wait for this thing to sync all of NPM,
+            it switches into pure offline mode, polling for changing on NPM.
+            So since everything we need is now local, suddenly the
+            UI is super fast, because it doesn't need the server for anything!
+          </aside>
+        </section>
 
         <section>
           <div class="video-compare">
             <div>
-              <video data-autoplay src="vid/slow-ionic.webm" loop></video>
+              <video height=680 src="vid/npmbrowser_android.webm" loop data-autoplay></video>
             </div>
             <div>
-              <video data-autoplay src="vid/fast-ionic.webm" loop></video>
-            </div>
-          </div>
-          <div class="header">
-            Angular <code>ng-repeat</code> (left) vs. Ionic <code>collection-repeat</code> (right)
-          </div>
-          <aside class="notes">
-            For example, here's something Ionic has done. On the right, you have Ionic's custom
-            <code>collection-repeat</code> directive, which is a replacement for the standard
-            Angular <code>ng-repeat</code> directive, i.e. the thing that shows a list of items.
-            And you'll notice that the Ionic one is way faster than the Angular one, and
-            that I can actually flick through the list of items just as fast as I could on
-            a native list.
-
-            How they did this is actually really interesting. They just used the same trick
-            that the native UICollectionView (iOS) or ListView (Android) does, which is that
-            they only render those DOM elements that are currently visible. So now we finally
-            have smooth, fast-scrolling lists on the mobile web!
-          </aside>
-        </section>
-
-        <section>
-            <div class="animated-spinner-holder">
-              <h2 class="fragment" data-fragment-index="1">Offline-first</h2>
-              <div class="animated-spinner fragment fade-out" data-fragment-index="1"></div>
-            </div>
-            <aside class="notes">
-                Last but not least, I want to talk about offline-first.
-
-                The basic idea of offline-first is that you want to cache aggressively,
-                and prefer talking to the local data store rather than the network.
-                And the reason you want to do that is that the network is
-                slow and unreliable. And every time your app
-                needs to make a network call before it can proceed, your users
-                have to stare at a spinner. This can slow down your app a ton, and furthermore
-                it means your app can stop working when your users go on the subway or
-                a far corner of the building with poor reception.
-
-                You can make lovely spinners with CSS animations that give beautiful
-                animations, but people aren't using your app to look at a spinner. Everything
-                I said before about smooth animations and crisp UIs doesn't matter if
-                your users are staring at a spinner.
-
-                This technique is important for desktop, but it's especially important
-                for mobile, because of just how slow cell networks are.
-            </aside>
-        </section>
-
-        <section>
-          <img src="img/ilya.png" alt="Ilya Grigorik talks about slow mobile networks"/>
-          <div class="header">
-            Ilya Grigorik - Breaking the 1000ms Time to Glass Mobile Barrier
-          </div>
-          <aside class="notes">
-            This video by Ilya Grigorik is a must-see. The basic takeaway is that
-            mobile networks are slow, especially when it comes to latency, and 4G is
-            not going to save us.
-
-            Furthermore, these numbers he points out (100-400 milliseconds) are the best case.
-            If the radio needs to warm up, then this is a lot greater. And if the user
-            dips offline, then the latency shoots to infinity.
-
-            On the other hand, once a connection is open, you can actually download data
-            pretty fast. So much of the solution here is the same stuff we've done for
-            years - concatenating, minifying, spriting, and reducing the number of
-            network requests. But with offline-first, you can take it one step further.
-          </aside>
-        </section>
-
-        <section>
-          <h3>Offline-first libraries</h3>
-          <ul>
-            <li>PouchDB</li>
-            <li>LocalForage</li>
-            <li>YDN-DB</li>
-            <li>Hoodie</li>
-            <li>Lawnchair</li>
-            <li>RemoteStorage</li>
-            <li>MakeDrive</li>
-            <li>IndexedDBShim</li>
-          </ul>
-          <aside class="notes">
-            There are lots of libraries out there for doing offline-first, but I'm
-            just going to quickly show one way we use PouchDB at Squarespace in
-            our hybrid Android app for faster image loading.
-          </aside>
-        </section>
-
-        <section>
-          <div>pouchdb-lru-cache</div>
-          <div>+</div>
-          <div>blob-util</div>
-          <div>=</div>
-          <div>easy offline images</div>
-          <aside class="notes">
-            We have an open-source PouchDB plugin called pouchdb-lru-cache, which, when
-            combined with another library I wrote called blob-util, gives you an easy
-            way to cache images offline.
-          </aside>
-        </section>
-
-        <section>
-          <div class="video-compare">
-            <div>
-              <video src="vid/offline-images-slow.webm" data-autoplay loop/>
+              <video height=680 src="vid/npmbrowser_ios.webm" loop data-autoplay></video>
             </div>
             <div>
-              <video src="vid/offline-images-fast.webm" data-autoplay loop/>
+              <video height=680 src="vid/npmbrowser_fxos.webm" loop data-autoplay></video>
             </div>
           </div>
+
           <aside class="notes">
-            And this is what it looks like. On the left, you have images
-            loading normally, using a throttled wifi endpoint we use
-            to simulate a slow 2G network, and on the right is the second
-            time around, when we load the images from PouchDB. Blink
-            and you might miss it!
+            Like the Dev Summit app, ou can save it as a homescreen icon on
+            Android, iOS, or Firefox OS. All of this with
+            a single codebase. Unfortunately the iOS version
+            doesn't work so well because iOS Safari's WebSQL
+            is limited to 50MB, but you can't win 'em all.
+            Anyway, this app was about pushing limits.
           </aside>
-          <div class="header">
-            Loading images on a slow connection (left) vs. Cached images in PouchDB (right)
+        </section>
+
+        <section>
+          <h3>Frontend data == cool apps</h3>
+          <aside class="notes">
+            So I think I've demonstrated some cool things you can
+            do with offline data. I'm sure a lot of working web developers
+            would be surprised that any of this is even
+            possible. I feel that all of these APIs are thoroughly under-utilized.
+
+            But the panelists here are five of those stalwart souls who are
+            working to change that situation, so I want to highlight some of their work.
+          </aside>
+        </section>
+
+        <section>
+          <div>
+            <video height=680 src="vid/wikipedia.webm" loop data-autoplay></video>
           </div>
-        </section>
-
-        <section>
-          <pre><code data-trim contenteditable>
-var db = new PouchDB('my-images');
-db.initLru(5000000); // store 5 MB max
-
-function getImageSrc(src) {
-  return db.lru.get(src).then(function (blob) {
-    return blobUtil.createObjectURL(blob); // cached
-  }).catch(function () { // not cached
-    return blobUtil.imgSrcToBlob(src).then(function (blob) {
-      return db.put(src, blob); // cache it
-    }).then(function () {
-      return src;
-    });
-  });
-}
-          </code></pre>
           <aside class="notes">
-            Basically you can think of this as a poor man's Service Worker. We are
-            overriding the browser's built-in cache, which normally would be cleared
-            when a user closes our app. Instead, we are setting a max limit of
-            how much data we want to store, then we are downloading images and putting
-            them in the cache if they aren't already there. Then if they're cached, we
-            can just show an image instantly instead of waiting for it to load all over
-            again. It's an LRU, so the least-recently used images get evicted from
-            the cache.
-
-            We actually go one step further and maintain two caches - a hi-res one
-            and a low-res one. The low-res one is essentially infinite, so that means
-            that, even if a user is offline and their hi-res image got evicted, we
-            can still show them a lo-res image. Basically, if they've downloaded
-            an image once, they'll never have to download it again. This gives them
-            a faster experience whether they're online or offline.
+            Jake Archibald has been tirelessly championing the offline
+            web for a long time, evangelizing many emerging web standards, such as
+            Promises, Application Cache, and Service Workers. He did
+            this cool Wikipedia app that works offline using Service
+            Workers. It even allows the user to choose which data to
+            store offline!
           </aside>
         </section>
 
         <section>
-          <ul>
-            <li>Harness the GPU for animations</li>
-            <li>Use Crosswalk for Android</li>
-            <li>Choose your frameworks wisely</li>
-            <li>Go offline-first</li>
-          </ul>
+          <h2>Dexie.js</h2>
+          <img src="img/dexie.png" alt="Dexie.js"/>
           <aside class="notes">
-            Summary
+            David Fahlander has pushed the boundaries of IndexedDB,
+            penning articles for the Mozilla Hacks blog, as well as writing
+            a shim to bring IE up to speed with the IndexedDB spec. One of his
+            most popular works is Dexie, which is a beautiful IndexedDB
+            wrapper that manages to be both low-level and yet easy to use.
           </aside>
         </section>
 
-				<section>
-				  <h2>Sources</h2>
-				  <ul class="sources">
-            <li>
-              <a href="https://www.facebook.com/notes/facebook-engineering/under-the-hood-rebuilding-facebook-for-ios/10151036091753920">
-                Under the hood: Rebuilding Facebook for iOS
-              </a>
-            </li>
-            <li>
-              <a href="http://lists.w3.org/Archives/Public/public-coremob/2012Sep/0021.html">
-                What's slowing down Mobile Facebook
-              </a>
-            </li>
-				    <li>
-				      <a href="https://dev.opera.com/articles/css-will-change-property/">
-				        Everything You Need to Know About the CSS will-change Property
-				      </a>
-				    </li>
-                                    <li><a href='http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/'>High Performance Animations</a></li>
-				    <li>
-				      <a href="https://www.youtube.com/watch?v=h2djIdAFc5U">
-				        Mobile Web Thursdays: Performance on Mobile (video)
-				      </a>
-				    </li>
-            <li>
-              <a href="http://ionicframework.com/blog/collection-repeat/">
-                Ionic: Collection Repeat
-              </a>
-            </li>
-				    <li>
-				      <a href="https://www.youtube.com/watch?v=Il4swGfTOSM">
-				        Breaking the 1000ms Time to Glass Mobile Barrier (video)
-				      </a>
-				    </li>
-				  </ul>
-				</section>
-				
-				<section>
-				  <h2>Tools</h2>
-				  <ul class="sources">
-				    <li>
-				      <a href="https://crosswalk-project.org/">
-				        Crosswalk
-				      </a>
-				    </li>
-				    <li>
-				      <a href="https://github.com/nolanlawson/blob-util">
-				        blob-util
-				      </a>
-				    </li>
-				    <li>
-				      <a href="https://github.com/squarespace/pouchdb-lru-cache">
-				        pouchdb-lru-cache
-				      </a>
-				    </li>
-				  </ul>
-				</section>
-			</div>
+        <section>
+          <h2>React, Flux, and Relay</h2>
+          <img src="img/relay.png" alt="Facebook Relay"/>
+          <aside class="notes">
+            Jing Chen works on the React/Flux team at Facebook, and has
+            been a major contributor to React Native. This year at React Conf,
+            she introduced us to the new Relay engine, which offers a
+            radical new philosophy for handling client-side data in React/Flux
+            apps. The idea is that each component is responsible for
+            its own data, both from the local cache and from the remote
+            server, leading less error-prone code that is still performant.
+          </aside>
+        </section>
 
+        <section>
+          <h2>LocalForage</h2>
+          <img src="img/localforage1.png" alt="LocalForage API"/>
+          <aside class="notes">
+            Matt MacPherson is a Mozillian, and author of LocalForage, which
+            is a JavaScript library that answers the question: what if IndexedDB
+            and WebSQL were as easy to work with as LocalStorage,
+            and what if there was a single API that worked across all three?
+            LocalStorage accomplishes this remarkable feat, abstracting away the
+            nitty-gritty details of the different storage APIs, while still
+            providing a svelte library that's under 7MB.
+          </aside>
+        </section>
+
+        <section>
+          <h2>PouchDB</h2>
+          <img src="img/pouchdb.png" alt="PouchDB"/>
+          <aside class="notes">
+            Last up, there's me, Nolan Lawson. I work at Squarespace, and I also
+            help maintain PouchDB.
+
+            PouchDB is a JavaScript implementation of the CouchDB API using
+            IndexedDB, WebSQL, and LocalStorage, as well as LevelDB in Node.js.
+            It can also run as its own CouchDB-like webserver, called PouchDB Server.
+            And since it speaks the CouchDB replication protocol, it can sync
+            with CouchDB or similar services like Cloudant and Couchbase.
+
+            And by the way, our logo is a kangaroo. Nobody ever seems to guess that!
+          </aside>
+        </section>
+
+        <section>
+          <h2>Let's talk frontend data!</h2>
+          <aside class="notes">
+            So back to Jake, and let's talk about frontend data!
+          </aside>
+        </section>
+      </div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
@@ -806,14 +378,15 @@ function getImageSrc(src) {
         }
       } );
 
-    </script>
+      // log the first slide's notes as well
+      console.info(document.querySelector(
+        'section.present aside.notes').innerHTML.replace(/\n\s+/g,'\n'));
 
-    <script>
-    if (!UA.isChrome() && !UA.isFirefox() && !UA.isAndroid() && !UA.isOpera()) {
-      window.alert(
-        'Heads up! This presentation looks best in ' +
-        'Firefox/Chrome due to WEBM video and flexbox. Sorry!');
-    }
+      if (!UA.isChrome() && !UA.isFirefox() && !UA.isAndroid() && !UA.isOpera()) {
+        window.alert(
+          'Heads up! This presentation looks best in ' +
+          'Firefox/Chrome due to WEBM video and flexbox. Sorry!');
+      }
     </script>
 
 	</body>

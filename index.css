@@ -134,275 +134,7 @@ button.btn {
   transform: translate(0, 20px);
 }
 
-.demo-label {
-  height: 150px;
-  width: 200px;
-  position: relative;
-}
-
-.demo-label.smaller {
-  font-size: 0.8em;
-}
-
-.demo-label code {
-  position: absolute;
-  left: 0;
-  top: 50px;
-}
-
-.demo {
-  border: 2px solid #999 !important;
-  width: 300px;
-  height: 150px;
-  position: relative;
-  display: inline-block;
-  margin-left: 50px !important;
-}
-
-.ball {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background-color: #333;
-  border-radius: 100%;
-}
-
-.square {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background-color: #333;
-  border-radius: 2%;
-}
-
-.translate3d-demo .ball {
-  left: 0;
-  top: 0;
-  animation: translate3d-demo-anim 3s infinite ease-in-out;
-  -webkit-animation: translate3d-demo-anim 3s infinite ease-in-out;
-}
-
-.scale3d-demo .ball {
-  left: 125px;
-  top: 50px;
-  animation: scale3d-demo-anim 3s alternate infinite ease-in-out;
-  -webkit-animation: scale3d-demo-anim 3s alternate infinite ease-in-out;
-}
-
-.rotate3d-demo .square {
-  left: 125px;
-  top: 50px;
-  animation: rotate3d-demo-anim 2s infinite ease-in-out;
-  -webkit-animation: rotate3d-demo-anim 2s infinite ease-in-out;
-}
-
-.opacity-demo .ball {
-  left: 125px;
-  top: 50px;
-  animation: opacity-demo-anim 2s alternate infinite ease-in-out;
-  -webkit-animation: opacity-demo-anim 2s alternate infinite ease-in-out;
-}
-
-.top-left-demo .ball {
-  animation: top-left-demo-anim 3s infinite ease-in-out;
-  -webkit-animation: top-left-demo-anim 3s infinite ease-in-out;
-}
-
-.top-left-with-z-demo .ball {
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  animation: top-left-demo-anim 3s infinite ease-in-out;
-  -webkit-animation: top-left-demo-anim 3s infinite ease-in-out;
-}
-
-@keyframes translate3d-demo-anim {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  25% {
-    transform: translate3d(250px, 0, 0);
-  }
-
-  50% {
-    transform: translate3d(250px, 100px, 0);
-  }
-
-  75% {
-    transform: translate3d(0, 100px, 0);
-  }
-
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes scale3d-demo-anim {
-  0% {
-    transform: scale3d(1, 1, 1);
-  }
-
-  50% {
-    transform: scale3d(2, 2, 1);
-  }
-
-  100% {
-    transform: scale3d(0.75, 0.75, 1);
-  }
-}
-
-@keyframes rotate3d-demo-anim {
-  0% {
-    transform: rotate3d(0, 0, 1, 0deg);
-  }
-
-  100% {
-    transform: rotate3d(0, 0, 1, 90deg);
-  }
-
-}
-
-@keyframes opacity-demo-anim {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes top-left-demo-anim {
-  0% {
-    top: 0;
-    left: 0;
-  }
-
-  25% {
-    top: 0;
-    left: 250px;
-  }
-
-  50% {
-    top: 100px;
-    left: 250px;
-  }
-
-  75% {
-    top: 100px;
-    left: 0;
-  }
-
-  100% {
-    top: 0;
-    left: 0;
-  }
-}
-
-/* I dislike repeating myself for -webkit, but this is the
-   world we live in */
-
-@-webkit-keyframes translate3d-demo-anim {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-  }
-
-  25% {
-    -webkit-transform: translate3d(250px, 0, 0);
-  }
-
-  50% {
-    -webkit-transform: translate3d(250px, 100px, 0);
-  }
-
-  75% {
-    -webkit-transform: translate3d(0, 100px, 0);
-  }
-
-  100% {
-    -webkit-transform: translate3d(0, 0, 0);
-  }
-}
-
-@-webkit-keyframes scale3d-demo-anim {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-  }
-
-  50% {
-    -webkit-transform: scale3d(2, 2, 1);
-  }
-
-  100% {
-    -webkit-transform: scale3d(0.75, 0.75, 1);
-  }
-}
-
-@-webkit-keyframes rotate3d-demo-anim {
-  0% {
-    -webkit-transform: rotate3d(0, 0, 1, 0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate3d(0, 0, 1, 90deg);
-  }
-
-}
-
-@-webkit-keyframes opacity-demo-anim {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes top-left-demo-anim {
-  0% {
-    top: 0;
-    left: 0;
-  }
-
-  25% {
-    top: 0;
-    left: 250px;
-  }
-
-  50% {
-    top: 100px;
-    left: 250px;
-  }
-
-  75% {
-    top: 100px;
-    left: 0;
-  }
-
-  100% {
-    top: 0;
-    left: 0;
-  }
-}
-
-.animated-spinner-holder {
-  position: relative;
-}
-
-.animated-spinner {
-  position: absolute;
-  left: calc(50% - 58px);
-  top: 0;
-  animation: spinny 1s infinite linear;
-  -webkit-animation: spinny 1s infinite linear;
-  width: 96px;
-  height: 96px;
-  background: transparent url("img/spinner.png") 0 0 no-repeat;
-  display: block;
-}
-
-@keyframes spinny {
+@keyframes anim1-frames {
   0% {
     transform: rotate3d(0, 0, 1, 0deg);
   }
@@ -411,22 +143,106 @@ button.btn {
   }
 }
 
-/* safari has a bug where you cannot rotate directly
-   from 0 to 360: http://stackoverflow.com/a/12313143/680742 */
-@-webkit-keyframes spinny {
+@keyframes anim2-frames {
   0% {
-    -webkit-transform: rotate3d(0, 0, 1, 0deg);
-  }
-  25% {
-    -webkit-transform: rotate3d(0, 0, 1, 90deg);
-  }
-  50% {
-    -webkit-transform: rotate3d(0, 0, 1, 180deg);
-  }
-  75% {
-    -webkit-transform: rotate3d(0, 0, 1, 270deg);
+    transform: scale3d(1, 1, 1);
   }
   100% {
-    -webkit-transform: rotate3d(0, 0, 1, 360deg);
+    transform: scale3d(2, 2, 2);
   }
+}
+
+@keyframes anim3-frames {
+  0% {
+    transform: translate3D(0, 0, 0);
+  }
+  25% {
+    transform: translate3D(50px, 0px, 0);
+  }
+
+  50% {
+    transform: translate3D(50px, 50px, 0);
+  }
+
+  75% {
+    transform: translate3D(0px, 50px, 0);
+  }
+
+  100% {
+    transform: translate3D(0px, 0px, 0);
+  }
+}
+
+@keyframes anim4-frames {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes anim5-frames {
+  0% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+}
+
+@keyframes anim6-frames {
+  0% {
+    transform: translate3D(-150px, 0, 0);
+  }
+
+  100% {
+    transform: translate3D(200px, 0px, 0);
+  }
+}
+
+@keyframes anim7-frames {
+  0% {
+    opacity: 1;
+  }
+
+  33% {
+    opacity: 0;
+  }
+
+  66% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.anim1 {
+  animation: anim1-frames 2s infinite linear;
+}
+
+.anim2 {
+  animation: anim2-frames 1s infinite alternate ease-in-out;
+}
+
+.anim3 {
+  animation: anim3-frames 1.5s infinite ease-in-out;
+}
+
+.anim4 {
+  animation: anim4-frames 1s infinite alternate ease-in-out;
+}
+
+.anim5 {
+  animation: anim5-frames 2s infinite alternate linear;
+}
+
+.anim6 {
+  animation: anim6-frames 1s infinite alternate cubic-bezier(.645, .045, .355, 1);
+}
+
+.anim7 {
+  animation: anim7-frames 1s infinite alternate steps(1, end);
 }

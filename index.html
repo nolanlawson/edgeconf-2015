@@ -58,17 +58,17 @@
           </aside>
         </section>
 
-
         <section>
-          <ul>
-            <li>Service Workers</li>
-            <li>ApplicationCache</li>
-            <li>IndexedDB</li>
-            <li>WebSQL</li>
-            <li>LocalStorage</li>
-            <li>SessionStorage</li>
-            <li>Cookies</li>
+          <ul style="list-style-type: none;">
+            <li class="anim-holder"><span >ServiceWorkers</span></li>
+            <li class="anim-holder"><span >ApplicationCache</span></li>
+            <li class="anim-holder"><span >IndexedDB</span></li>
+            <li class="anim-holder"><span >WebSQL</span></li>
+            <li class="anim-holder"><span >LocalStorage</span></li>
+            <li class="anim-holder"><span >SessionStorage</span></li>
+            <li class="anim-holder"><span >Cookies</span></li>
           </ul>
+          <p class="fragment"> <!-- dummy to create a fragment event --></p>
           <aside class="notes">
             First off, I'd like to say that I think it's an exciting time to
             be a web developer. Storage and caching APIs that we couldn't have
@@ -399,6 +399,20 @@
           console.info(notes.innerHTML.replace(/\n\s+/g,'\n'));
         }
       } );
+
+      Reveal.addEventListener('fragmentshown', function (e) {
+        // show the animations
+        $(e.target).find('li span').each(function (i, el) {
+          $(el).addClass('anim' + (i + 1));
+        });
+      });
+
+      Reveal.addEventListener('fragmenthidden', function (e) {
+        // hide the animations
+        $(e.target).find('li span').each(function (i, el) {
+          $(el).removeClass('anim' + (i + 1));
+        });
+      });
 
       // log the first slide's notes as well
       console.info(document.querySelector(

@@ -61,7 +61,7 @@
 
         <section>
           <ul>
-            <li>Service workers</li>
+            <li>Service Workers</li>
             <li>ApplicationCache</li>
             <li>IndexedDB</li>
             <li>WebSQL</li>
@@ -83,10 +83,24 @@
 
         <section>
           <div>
+            <video height=680 src="vid/phpnet.webm" loop data-autoplay></video>
+          </div>
+          <aside class="notes">
+            This is a humble example of frontend data that I really like. PHP.net
+            has a very snappy search bar, which is built using nothing more
+            than LocalStorage. When you first go to the site, a fat 1MB ball of
+            JSON is downloaded to LocalStorage, and then the search box uses that.
+            Isaac Schlueter, creator of NPM, has said that he really admires
+            PHP.net and this search box because of how fast it is.
+          </aside>
+        </section>
+
+        <section>
+          <div>
             <video height=680 src="vid/devsummit1.webm" loop data-autoplay></video>
           </div>
           <aside class="notes">
-            Here's a neat app that Paul Lewis of the Google Chrome team made
+            Here's a more ambitious app, which Paul Lewis of the Google Chrome team made
             for the Chrome dev summit.
             Of course it looks great, with spiffy animations, and it shows
             the whole conference schedule.
@@ -112,9 +126,10 @@
             <video height=680 src="vid/devsummit_android.webm" loop data-autoplay></video>
           </div>
           <aside class="notes">
-            All of this is possible with just a simple website - no native
-            app required. You can even save an icon to your homescreen, with
-            a custom high-quality icon.
+            This starts to show how offline data can really blur the line between
+            a "website" and an "app." All of this is possible with just a simple website.
+            The user goes to a URL, and the app is "installed."
+            You can even save an icon to your homescreen, with a custom high-quality icon.
           </aside>
         </section>
 
@@ -184,8 +199,8 @@
             storage, so I also made this ridiculous showcase app called NPM Browser.
             What it does is sync the entire NPM registry - the metadata
             anyway - to your browser, which comes to a grand total of
-            something like 2-2.5 gigabytes. Believe it or not, this works
-            in Chrome, Firefox, Safari, and even IE.
+            818MB in WebSQL (Chrome) and 844MB in IndexedDB (Firefox).
+            Believe it or not, this works in Chrome, Firefox, Safari, and IE.
           </aside>
         </section>
 
@@ -311,7 +326,7 @@
           <h2>PouchDB</h2>
           <img src="img/pouchdb.png" alt="PouchDB"/>
           <aside class="notes">
-            Last up, there's me, Nolan Lawson. I work at Squarespace, and I also
+            There's me, Nolan Lawson. I work at Squarespace, and I also
             help maintain PouchDB.
 
             PouchDB is a JavaScript implementation of the CouchDB API using
@@ -321,6 +336,19 @@
             with CouchDB or similar services like Cloudant and Couchbase.
 
             And by the way, our logo is a kangaroo. Nobody ever seems to guess that!
+          </aside>
+        </section>
+
+        <section>
+          <h2>Cloudant</h2>
+          <img src="img/glynn.png" alt="Glynn Bird's homepage"/>
+          <aside class="notes">
+            Also here is Glynn Bird, who I've had the pleasure of collaborating with
+            on PouchDB pretty frequently. Glynn works for Cloudant, which is one of
+            the major contributors to the open-source CouchDB project and has a hosted
+            backend that is CouchDB-compatible (and therefore PouchDB compatible). So Glynn
+            has done lots of interesting work with offline apps that sync from the browser
+            to Cloudant.
           </aside>
         </section>
 

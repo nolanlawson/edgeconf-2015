@@ -219,6 +219,25 @@ button.btn {
   }
 }
 
+@keyframes anim8-frames {
+  0% {
+    transform: rotate3d(1, 0, 0, 0deg);
+  }
+  100% {
+    transform: rotate3d(1, 0, 0, 360deg);
+  }
+}
+
+@keyframes anim9-frames {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  100% {
+    transform: scale3d(3, 1, 1);
+  }
+}
+
+
 .anim1 {
   animation: anim1-frames 2s infinite linear;
 }
@@ -245,4 +264,12 @@ button.btn {
 
 .anim7 {
   animation: anim7-frames 1s infinite alternate steps(1, end);
+}
+
+.anim8 {
+  animation: anim8-frames 1s infinite linear;
+}
+
+.anim9 {
+  animation: anim9-frames 0.5s infinite alternate cubic-bezier(.645, .045, .355, 1);
 }
